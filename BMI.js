@@ -7,7 +7,7 @@ class BMI {
   }
 
   // BMIを計算するメソッド。
-  getBMIa() {
+  getBMI() {
     // BMIを計算
     let bmi = this.weight / Math.pow(this.height/100, 2);
 
