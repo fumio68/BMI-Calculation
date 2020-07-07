@@ -18,6 +18,12 @@ function onCalcBMIButtonClick() {
   // BMIを表示
   bmiResult.textContent = bmi;
 
+  // アドバイスを取得
+  let advice = bmiObj.getAdvice();
+  // アドバイスを表示
+  let adviceMessage = document.querySelector("#adviceMessage");
+  adviceMessage.textContent = advice;
+
   // 結果を表示するp要素を取得してクラスを削除
   let resultMessage = document.querySelector("#resultMessage");
   resultMessage.classList.remove("displayNone");

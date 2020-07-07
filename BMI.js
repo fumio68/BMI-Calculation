@@ -28,7 +28,7 @@ class BMI {
     let idealWeight = 22 * Math.pow(this.height/100, 2);
 
     // 理想体重の整数値を作成
-    idealWeight = 22 * Math.pow(this.height/100, 2);
+    idealWeight = Math.round(idealWeight);
 
     // アドバイス用の変数を用意
     let adviceMessage = "理想体重です。現状を維持しましょう！";
