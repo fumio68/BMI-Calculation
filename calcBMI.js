@@ -28,3 +28,19 @@ function onCalcBMIButtonClick() {
   let resultMessage = document.querySelector("#resultMessage");
   resultMessage.classList.remove("displayNone");
 }
+
+window.addEventListener("DOMContentLoaded", function() {
+
+  // 身長のinput要素を取得。
+  let heightInput = document.querySelector("#heightInput");
+  // 身長入力欄が変更された時の処理を登録。
+  heightInput.addEventListener("input", checkInput);
+  // 身長変更欄からフォーカスが外れた時の処理を登録
+  heightInput.addEventListener("blur", checkInput);
+
+  // 体重版
+  let weightInput = document.querySelector("#weightInput");
+  weightInput.addEventListener("input", checkInput);
+  weightInput.addEventListener("blur", checkInput);
+
+});
