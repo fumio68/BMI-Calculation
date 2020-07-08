@@ -43,4 +43,60 @@ window.addEventListener("DOMContentLoaded", function() {
   weightInput.addEventListener("input", checkInput);
   weightInput.addEventListener("blur", checkInput);
 
+  // バリデーション用関数
+  function checkInput() {
+    // 計算ボタンを有効にするかのフラグ
+    let buttonEnabled = true;
+
+    // 身長の値を取得して数値に変換
+    let heightStr = heightInput.value;
+    let height =Number(heightStr);
+
+    // メッセージを表示するspanを取得
+    let heightInputMsg = document.querySelector("#heightInputMsg");
+
+    // 条件分岐
+    if(heightStr.length === 0) {
+      buttonEnabled = false;
+      heightInputMsg.textContent = "身長を入力してください。";
+    } else if(!isFinite(height)) {
+      buttonEnabled = false;
+      heightInputMsg.textContent = "身長には数値を入力してください。";
+    } else if(height <= 0) {
+      buttonEnabled = false;
+      heightInputMsg.textContent = "身長には正数を入力してください。";
+    } else {
+      heightInputMsg.textContent = "";
+    }
+
+    // 体重版
+    let weightStr = weightInput.value;
+    let weight =Number(weightStr);
+
+    // メッセージを表示するspanを取得
+    let weightInputMsg = document.querySelector("#weightInputMsg");
+
+    // 条件分岐
+    if(weightStr.length === 0) {
+      buttonEnabled = false;
+      weightInputMsg.textContent = "体重を入力してください。";
+    } else if(!isFinite(weight)) {
+      buttonEnabled = false;
+      weightInputMsg.textContent = "体重には数値を入力してください。";
+    } else if(weight <= 0) {
+      buttonEnabled = false;
+      weightInputMsg.textContent = "体重には正数を入力してください。";
+    } else {
+      weightInputMsg.textContent = "";
+    }
+
+    // 計算ボタン要素を取得
+    let calcBMIButton = document.querySelector("#calcBMIButton");
+    if(buttonEnabled) {
+      calcBMIButton.removeAttribute("disabled");
+    }else {
+      calcBMIButton.setAttribute("disabled", "disabled");
+    }
+  }
+
 });
